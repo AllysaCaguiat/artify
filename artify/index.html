@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#151020" name="theme-color"/>
+  <meta content="Artify transforms your photos into pencil sketches and colorful cartoon art, right in your browser." name="description"/>
+  <title>
+   Artify — Turn your photos into art!
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body>
+  <div aria-hidden="true" class="page-decor decor-one">
+  </div>
+  <div aria-hidden="true" class="page-decor decor-two">
+  </div>
+  <div class="app-shell">
+   <header class="header">
+    <a aria-label="Artify home" class="brand" href="#home">
+     <span class="brand-icon">
+      🎨
+     </span>
+     <span class="brand-words">
+      <span class="brand-name">
+       Artify
+       <span class="brand-sparkle">
+        ✦
+       </span>
+      </span>
+      <span class="brand-tagline">
+       Turn your photos into art!
+      </span>
+     </span>
+    </a>
+    <nav aria-label="Main navigation" class="nav">
+     <a class="nav-link active" data-view="home" href="#home">
+      <span class="nav-icon">
+       ⌂
+      </span>
+      Home
+     </a>
+     <a class="nav-link" data-view="history" href="#history">
+      <span class="nav-icon">
+       ◴
+      </span>
+      History
+     </a>
+     <a class="nav-link" data-view="about" href="#about">
+      <span class="nav-icon">
+       ⓘ
+      </span>
+      About
+     </a>
+    </nav>
+    <a class="get-creative" href="#studio" id="getCreativeBtn">
+     ✦   Get Creative
+    </a>
+   </header>
+   <main>
+    <section aria-label="Artify editor" class="view active-view" id="home">
+     <div class="editor-grid" id="studio">
+      <section aria-label="Upload a photograph" class="frame upload-panel">
+       <label class="upload-drop" for="fileInput" id="dropZone">
+        <span aria-hidden="true" class="upload-cloud">
+         <svg fill="none" viewbox="0 0 80 70">
+          <path d="M18 55H16C8 55 3 49 3 41c0-8 6-14 13-15C18 14 28 6 40 6c13 0 23 9 25 21 8 0 14 6 14 14s-6 14-14 14H62" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2">
+          </path>
+          <path d="M40 65V33m0 0L29 44m11-11 11 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2">
+          </path>
+         </svg>
+        </span>
+        <strong class="upload-title">
+         Upload Your Photo
+        </strong>
+        <span class="upload-copy">
+         Drag &amp; drop an image here
+         <br/>
+         or
+        </span>
+        <span class="choose-btn">
+         📁   Choose File
+        </span>
+        <small class="file-support">
+         Supported: JPG, PNG, WEBP
+        </small>
+       </label>
+       <input accept="image/png,image/jpeg,image/webp" hidden="" id="fileInput" type="file"/>
+      </section>
+      <section aria-label="Original image preview" class="frame image-frame original-frame">
+       <span class="image-chip">
+        Original Image
+       </span>
+       <div class="image-content" id="originalPreview">
+        <div class="empty-image">
+         <span class="empty-illustration">
+          ✧
+         </span>
+         <strong>
+          Your photo appears here
+         </strong>
+         <small>
+          Choose a file to get started
+         </small>
+        </div>
+       </div>
+      </section>
+      <section aria-label="Edited image preview" class="frame image-frame edited-frame">
+       <span class="image-chip result-chip">
+        ✦   Edited Result
+       </span>
+       <div class="image-content" id="resultPreview">
+        <div class="empty-image">
+         <span class="empty-illustration">
+          ✎
+         </span>
+         <strong>
+          Your art appears here
+         </strong>
+         <small>
+          Make something magical!
+         </small>
+        </div>
+       </div>
+      </section>
+      <section aria-label="Effects and downloads" class="frame control-panel">
+       <div aria-label="Image style" class="effect-tabs" role="group">
+        <button aria-pressed="true" class="effect-tab selected" data-effect="sketch" type="button">
+         <span>
+          ✎
+         </span>
+         Sketch
+        </button>
+        <button aria-pressed="false" class="effect-tab" data-effect="cartoon" type="button">
+         <span>
+          ◉
+         </span>
+         Cartoon
+        </button>
+       </div>
+       <div class="control-group">
+        <div class="control-heading">
+         <label for="strength" id="intensityName">
+          Sketch Intensity
+         </label>
+        </div>
+        <div class="slider-row">
+         <input id="strength" max="100" min="0" type="range" value="70"/>
+         <output for="strength" id="strengthLabel">
+          70%
+         </output>
+        </div>
+       </div>
+       <div class="control-group">
+        <div class="control-heading">
+         <label for="detail">
+          Detail Level
+         </label>
+        </div>
+        <div class="slider-row">
+         <input id="detail" max="100" min="0" type="range" value="80"/>
+         <output for="detail" id="detailLabel">
+          80%
+         </output>
+        </div>
+       </div>
+       <div class="control-divider">
+       </div>
+       <label class="toggle-row" for="autoUpdate">
+        <span>
+         <strong>
+          Auto Update
+         </strong>
+         <small>
+          ⚡   Changes are applied automatically!
+         </small>
+        </span>
+        <input checked="" id="autoUpdate" role="switch" type="checkbox"/>
+        <span aria-hidden="true" class="toggle-track">
+        </span>
+       </label>
+       <button class="apply-btn" disabled="" id="applyBtn" type="button">
+        ✦   Apply Effect
+       </button>
+       <div class="download-box">
+        <strong>
+         ↓   Download Image
+        </strong>
+        <div class="download-options">
+         <label class="download-label" for="downloadFormat">Image Format</label>
+         <select id="downloadFormat" class="download-format" disabled>
+          <option value="png">PNG (.png)</option>
+          <option value="jpeg">JPG (.jpg)</option>
+          <option value="webp">WEBP (.webp)</option>
+         </select>
+         <button id="downloadBtn" class="download-btn" type="button" disabled>
+          ↓ Download Image
+         </button>
+        </div>
+       </div>
+       <p aria-live="polite" class="status-message" id="message" role="status">
+        Upload a photo to get started.
+       </p>
+       <button class="reset-btn" disabled="" id="resetBtn" type="button">
+        ↺ Clear photo
+       </button>
+      </section>
+     </div>
+     <div class="bottom-grid">
+      <section class="try-section">
+       <h2>
+        <span class="section-star">
+         ✦
+        </span>
+        Try It Yourself!
+       </h2>
+       <div class="example-grid">
+        <div class="example-card">
+         <div class="mini-preview" id="miniOriginal">
+          <span>
+           Upload a photo
+           <br/>
+           to preview it
+          </span>
+         </div>
+         <span class="mini-label">
+          Original
+         </span>
+        </div>
+        <div class="example-card">
+         <div class="mini-preview sketch-placeholder" id="miniSketch">
+          <span>
+           Pencil-style
+           <br/>
+           artwork
+          </span>
+         </div>
+         <span class="mini-label">
+          Sketch Effect
+         </span>
+        </div>
+        <div class="example-card">
+         <div class="mini-preview cartoon-placeholder" id="miniCartoon">
+          <span>
+           Colorful
+           <br/>
+           cartoon artwork
+          </span>
+         </div>
+         <span class="mini-label">
+          Cartoon Effect
+         </span>
+        </div>
+       </div>
+      </section>
+      <aside class="benefits">
+       <div class="benefit-box">
+        <p>
+         <span>
+          ✓
+         </span>
+         Instant preview
+        </p>
+        <p>
+         <span>
+          ✓
+         </span>
+         Switch between effects
+        </p>
+        <p>
+         <span>
+          ✓
+         </span>
+         Adjust settings easily
+        </p>
+        <p>
+         <span>
+          ✓
+         </span>
+         Download in multiple formats
+        </p>
+       </div>
+       <div class="handwriting">
+        Create. Edit. Download.
+        <br/>
+        <span>
+         It's that easy! ♡
+        </span>
+       </div>
+      </aside>
+     </div>
+    </section>
+    <section aria-label="History" class="view info-view" id="history">
+     <div class="info-card">
+      <h1>
+       ◴   Recent Creations
+      </h1>
+      <p>
+       Images you edit in this tab appear here during your session. Your photos stay in your browser and are never uploaded to a server.
+      </p>
+      <div class="history-items" id="historyItems">
+       <div class="empty-history">
+        No creations yet. Open Home and transform a photo to see it here.
+       </div>
+      </div>
+     </div>
+    </section>
+    <section aria-label="About" class="view info-view" id="about">
+     <div class="info-card">
+      <h1>
+       ✦   About Artify
+      </h1>
+      <p>
+       Artify is a browser-based photo editor that uses image-processing techniques to turn your photos into pencil sketches or cartoon-like images. It applies grayscale, blur, color-dodge shading, color quantization, and Sobel edge detection.
+      </p>
+      <p>
+       Your images are processed locally. No login, server, or installation is required.
+      </p>
+      <a class="get-creative inline-link" href="#home">
+       Start creating ✦
+      </a>
+     </div>
+    </section>
+   </main>
+   <footer class="footer">
+    ✦   Made for your creative moments   •
+    <span id="dimensions">
+     JPG, PNG and WEBP supported
+    </span>
+   </footer>
+  </div>
+ </body>
+</html>
+
